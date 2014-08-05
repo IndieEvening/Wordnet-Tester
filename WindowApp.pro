@@ -14,9 +14,12 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    expression.cpp
+    expression.cpp \
+    testwindow1.cpp
 
 HEADERS  += mainwindow.hpp \
-    expression.hpp
+    expression.hpp \
+    testwindow1.hpp
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    testwindow1.ui

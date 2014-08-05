@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <expression.hpp>
 #include <QPushButton>
+#include "testwindow1.hpp"
 
 namespace Ui {
 class MainWindow;
@@ -18,14 +19,16 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_pushButton_clicked();
+    void on_Wczytaj_clicked();
     void on_actionExit_triggered();
+
+    void on_rozpocznijTest_clicked();
 
 private:
     Expression* exp;
     Ui::MainWindow* ui;
     QPushButton* akceptuj;
-    void getExpression();
+    testWindow1* testwindow1;
 };
 
 #endif // MAINWINDOW_HPP

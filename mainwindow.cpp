@@ -1,6 +1,6 @@
 #include "mainwindow.hpp"
 #include "ui_mainwindow.h"
-
+#include <QPushButton>
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
@@ -8,19 +8,26 @@ MainWindow::MainWindow(QWidget *parent) :
     akceptuj(new QPushButton)
 {
     ui->setupUi(this);
+    this->setWindowTitle("Tester wyrażeń Słowosieci");
+    ui->rozpocznijTest->setVisible(false);
 }
 
 MainWindow::~MainWindow()
 {
     delete exp;
     delete akceptuj;
+    delete testwindow1;
     delete ui;
 }
 
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_Wczytaj_clicked()
 {
-    this->getExpression();
-    ui->label->setText(exp->Name());
+    /*
+     * Setting entered text as tested Expression
+    */
+    exp->setName(ui->textEdit->toPlainText());
+    ui->label->setText("Pracujesz nad wyrażeniem: " + exp->Name());
+    ui->rozpocznijTest->setVisible(true);
 }
 
 void MainWindow::on_actionExit_triggered()
@@ -28,7 +35,9 @@ void MainWindow::on_actionExit_triggered()
     close();
 }
 
-void MainWindow::getExpression()
+void MainWindow::on_rozpocznijTest_clicked()
 {
-    exp->setName(ui->textEdit->toPlainText());
+    testwindow1 = new testWindow1;
+    testwindow1->setModal(true);
+    testwindow1->exec();
 }
