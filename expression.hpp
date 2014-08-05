@@ -10,7 +10,7 @@ public:
     Expression();
     Expression(QString);
     ~Expression() {};
-
+    void setName(QString);
     QString Name();
 };
 
